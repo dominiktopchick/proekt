@@ -1,1 +1,16 @@
-
+body {
+    font-family: Brush Script MT;
+    margin: 0;
+    background-color: darkgreen;
+}
+h1{
+    text-align: center;
+    color: black;
+}
+h2{
+    text-align: center;
+    color: black;
+}
+p{
+    color: black;
+}
