@@ -6,11 +6,14 @@ body {
 h1{
     text-align: center;
     color: black;
+    font-size: xx-large;
 }
 h2{
     text-align: center;
     color: black;
+    font-size: x-large;
 }
 p{
     color: black;
+    font-size: large;
 }
