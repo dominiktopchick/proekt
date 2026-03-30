@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green Horizon UA | Біогаз і зелений водень</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stylchik.css">
+</head>
+<body data-theme="light" data-lang="uk">
+  <div class="ambient-glow glow-1" aria-hidden="true"></div>
+  <div class="ambient-glow glow-2" aria-hidden="true"></div>
+  <div class="floating-leaf leaf-1" aria-hidden="true"></div>
+  <div class="floating-leaf leaf-2" aria-hidden="true"></div>
+  <div class="floating-leaf leaf-3" aria-hidden="true"></div>
+  <div class="floating-leaf leaf-4" aria-hidden="true"></div>
+
+  <header class="site-header reveal">
+    <div class="brand-wrap">
+      <p class="brand-kicker" id="brand-kicker">Eco Analytics Platform</p>
+      <h1 class="brand" id="brand-title">Green Horizon UA</h1>
+    </div>
+
+    <nav class="tabs" aria-label="Навігація вкладками">
+      <button class="tab-btn is-active" id="tab-overview" data-tab-target="overview" role="tab" aria-selected="true">Огляд</button>
+      <button class="tab-btn" id="tab-biogas" data-tab-target="biogas" role="tab" aria-selected="false">Біогаз</button>
+      <button class="tab-btn" id="tab-hydrogen" data-tab-target="hydrogen" role="tab" aria-selected="false">Зелений водень</button>
+      <button class="tab-btn" id="tab-quiz" data-tab-target="quiz" role="tab" aria-selected="false">Квіз</button>
+      <button class="tab-btn" id="tab-team" data-tab-target="team" role="tab" aria-selected="false">Команда</button>
+    </nav>
+
+    <div class="header-controls">
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Змінити тему">🌙</button>
+      <div class="lang-switch" role="group" aria-label="Language switch">
+        <button class="lang-btn is-active" id="lang-uk" data-lang="uk" type="button">UA</button>
+        <button class="lang-btn" id="lang-hu" data-lang="hu" type="button">HU</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="overview" class="tab-panel is-active" role="tabpanel">
+      <section class="hero reveal">
+        <div class="hero-content">
+          <p class="eyebrow" id="ov-eyebrow">Перспективи для України 2026-2035</p>
+          <h2 id="ov-title">Перспективи одержання біогазу та "зеленого водню" в Україні</h2>
+          <p id="ov-text">Україна може поєднати аграрний потенціал, відновлювану енергетику та існуючу енергетичну інфраструктуру, щоб зміцнити енергобезпеку і створити нову експортну нішу.</p>
+
+          <div class="hero-actions">
+            <button class="cta cta-primary" id="cta-quiz" data-jump="quiz">Пройти квіз</button>
+            <button class="cta cta-secondary" id="cta-roadmap" data-jump="biogas">Дивитися дорожню карту</button>
+          </div>
+          <div class="chip-row" id="ov-chips"></div>
+        </div>
+      </section>
+
+      <section class="stats-grid reveal">
+        <article class="stat-card">
+          <p class="stat-value" data-count="24">0</p>
+          <p class="stat-label" id="stat-label-1">години стабільної генерації з біогазу щодоби</p>
+        </article>
+        <article class="stat-card">
+          <p class="stat-value" data-count="9">0</p>
+          <p class="stat-label" id="stat-label-2">ключових кластерів для запуску регіональних проєктів</p>
+        </article>
+        <article class="stat-card">
+          <p class="stat-value" data-count="2035">0</p>
+          <p class="stat-label" id="stat-label-3">цільовий горизонт для масштабування біометану і H₂</p>
+        </article>
+      </section>
+
+      <section class="content-card reveal">
+        <h3 id="ov-highlights-title">Що зараз робить тему реальною</h3>
+        <div class="feature-grid" id="ov-highlights-grid"></div>
+      </section>
+
+      <section class="content-card reveal">
+        <h3 id="ov-priority-title">Ключові пріоритети для країни</h3>
+        <div class="priority-grid" id="ov-priority-grid"></div>
+      </section>
+
+      <section class="timeline reveal">
+        <h3 id="ov-roadmap-title">Коротка дорожня карта</h3>
+        <div class="timeline-row" id="ov-roadmap-row"></div>
+      </section>
+
+      <section class="content-card reveal">
+        <h3 id="ov-extra-title">Де найбільший потенціал зростання</h3>
+        <div class="insight-grid" id="ov-extra-grid"></div>
+      </section>
+    </section>
+
+    <section id="biogas" class="tab-panel" role="tabpanel" aria-hidden="true">
+      <section class="split reveal">
+        <div class="split-media">
+          <img src="https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Біогазова інфраструктура в агросекторі">
+        </div>
+        <div class="split-content">
+          <p class="eyebrow" id="bio-eyebrow">Біогаз і біометан</p>
+          <h2 id="bio-title">Найреалістичніший зелений газ для швидкого масштабування</h2>
+          <p id="bio-text">Для України біогаз є найпрактичнішим перехідним кроком, бо він базується на вже доступній сировині та дає керовану генерацію незалежно від погоди.</p>
+          <ul class="green-list" id="bio-list"></ul>
+        </div>
+      </section>
+
+      <section class="content-card reveal">
+        <h3 id="bio-scale-title">Що потрібно для масштабування біогазу</h3>
+        <div class="feature-grid" id="bio-scale-grid"></div>
+      </section>
+
+      <section class="content-card reveal">
+        <h3 id="bio-case-title">Формати проєктів, що можуть швидко рости</h3>
+        <div class="insight-grid" id="bio-case-grid"></div>
+      </section>
+    </section>
+
+    <section id="hydrogen" class="tab-panel" role="tabpanel" aria-hidden="true">
+      <section class="split reveal">
+        <div class="split-media">
+          <img src="https://images.pexels.com/photos/356036/pexels-photo-356036.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Електроліз та зелений водень">
+        </div>
+        <div class="split-content">
+          <p class="eyebrow" id="h2-eyebrow">Зелений водень</p>
+          <h2 id="h2-title">Стратегічний експортний і промисловий продукт</h2>
+          <p id="h2-text">Зелений водень доцільно розвивати там, де є поєднання дешевого ВДЕ, споживачів із високим вуглецевим слідом і можливість інтеграції з європейськими ринками.</p>
+          <ul class="green-list" id="h2-list"></ul>
+        </div>
+      </section>
+
+      <section class="content-card reveal">
+        <h3 id="h2-conditions-title">Критичні умови розвитку водневої економіки</h3>
+        <div class="feature-grid" id="h2-conditions-grid"></div>
+      </section>
+
+      <section class="content-card reveal">
+        <h3 id="h2-products-title">Похідні продукти і нові ринки</h3>
+        <div class="insight-grid" id="h2-products-grid"></div>
+      </section>
+    </section>
+
+    <section id="quiz" class="tab-panel" role="tabpanel" aria-hidden="true">
+      <section class="quiz-shell reveal">
+        <div class="quiz-head">
+          <p class="eyebrow" id="quiz-eyebrow">Інтерактив</p>
+          <h2 id="quiz-title">Green Energy Quiz: Україна</h2>
+          <p id="quiz-subtitle">Оціни, наскільки добре ти орієнтуєшся в практичних кроках розвитку біогазу та зеленого водню.</p>
+        </div>
+
+        <div class="quiz-meta">
+          <p id="quiz-step-label">Питання 1 / 12</p>
+          <p id="quiz-score-label">Бали: 0</p>
+        </div>
+
+        <div class="quiz-progress">
+          <span id="quiz-progress-fill"></span>
+        </div>
+        <p id="quiz-progress-label" class="quiz-progress-label"></p>
+
+        <article id="quiz-card" class="quiz-card">
+          <p id="quiz-category" class="quiz-category"></p>
+          <h3 id="quiz-question"></h3>
+          <div id="quiz-options" class="quiz-options"></div>
+          <p id="quiz-insight" class="quiz-insight" aria-live="polite"></p>
+          <div class="quiz-controls">
+            <button id="quiz-prev" class="cta cta-secondary" type="button">Назад</button>
+            <button id="quiz-next" class="cta cta-primary" type="button" disabled>Далі</button>
+          </div>
+        </article>
+
+        <article id="quiz-result" class="quiz-result" hidden>
+          <h3 id="quiz-result-title"></h3>
+          <p id="quiz-result-text"></p>
+          <div id="quiz-result-points" class="quiz-result-points"></div>
+          <ul id="quiz-result-list" class="quiz-result-list"></ul>
+          <button id="quiz-restart" class="cta cta-secondary" type="button">Пройти ще раз</button>
+        </article>
+      </section>
+    </section>
+
+    <section id="team" class="tab-panel" role="tabpanel" aria-hidden="true">
+      <section class="team reveal">
+        <p class="eyebrow" id="team-eyebrow">Хто зробив цю сторінку</p>
+        <h2 id="team-title">Команда проєкту</h2>
+        <div class="team-grid">
+          <article class="team-card sushi-card">
+            <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=900&q=80" alt="Sushi - веброзробник">
+            <div class="team-copy">
+              <h3>Sushi</h3>
+              <p class="role" id="sushi-role">Lead Web Designer</p>
+              <p id="sushi-text">Формує інтерфейс, структурує UX і перетворює аналітичні дані на візуально зрозумілий продукт.</p>
+            </div>
+          </article>
+
+          <article class="team-card goose-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Greylag_Goose_%28Anser_anser%29.jpg" alt="Goose - веброзробник">
+            <div class="team-copy">
+              <h3>Goose</h3>
+              <p class="role" id="goose-role">Full-Stack Engineer</p>
+              <p id="goose-text">Працює з логікою, інтерактивом і стабільністю. Так, тепер гусак точно є і фото працює.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p id="footer-text">© <span id="year"></span> Green Horizon UA. Системне бачення чистої енергетики для України.</p>
+  </footer>
+
+  <script src="moonster.js"></script>
+</body>
+</html>
