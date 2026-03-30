@@ -1,4 +1,4 @@
-﻿const tabButtons = Array.from(document.querySelectorAll(".tab-btn"));
+const tabButtons = Array.from(document.querySelectorAll(".tab-btn"));
 const panels = Array.from(document.querySelectorAll(".tab-panel"));
 const jumpButtons = Array.from(document.querySelectorAll("[data-jump]"));
 const languageButtons = Array.from(document.querySelectorAll(".lang-btn"));
@@ -30,7 +30,7 @@ const LOCALE = { uk: "uk-UA", hu: "hu-HU" };
 const baseContent = {
   ui: {
     brandKicker: "Eco Analytics Platform",
-    brandTitle: "Green Horizon UA",
+    brandTitle: "Green Gaz",
     tabs: { overview: "Огляд", biogas: "Біогаз", hydrogen: "Зелений водень", quiz: "Квіз", team: "Команда" },
     ctaQuiz: "Пройти квіз",
     ctaRoadmap: "Дивитися дорожню карту",
@@ -132,7 +132,7 @@ const baseContent = {
     gooseRole: "Full-Stack Engineer",
     gooseText: "Відповідає за логіку, інтерактив і стабільність. І так, гусак точно працює."
   },
-  footer: "Green Horizon UA. Системне бачення чистої енергетики для України."
+  footer: "Green Gaz. Системне бачення чистої енергетики для України."
 };
 
 const huOverrides = {
@@ -242,7 +242,7 @@ huOverrides.team = {
   gooseText: "A logikáért és stabil működésért felel. A liba képe most már biztosan működik."
 };
 
-huOverrides.footer = "Green Horizon UA. Rendszerszintű jövőkép a tiszta energiához Ukrajnában.";
+huOverrides.footer = "Green Gaz. Rendszerszintű jövőkép a tiszta energiához Ukrajnában.";
 
 const quizBase = {
   eyebrow: "Інтерактив",
@@ -365,8 +365,143 @@ const quizHuOverrides = {
   next: "Tovább",
   showResult: "Eredmény",
   restart: "Újrakezdés",
-  resultPrefix: "Eredmény"
+  resultPrefix: "Eredmény",
+  levels: [
+    {
+      min: 85,
+      title: "Szint: Zöld átállási stratéga",
+      text: "Rendszerben gondolkodsz, és jól kezeled a biometán-H2-VRE szinergiát.",
+      recommendations: [
+        "Készíts klaszteralapú 2035-ös ütemtervet.",
+        "Erősítsd a tanúsítási és szerződéses keretet.",
+        "Tervezd együtt a biometán és hidrogén portfóliót."
+      ]
+    },
+    {
+      min: 65,
+      title: "Szint: Erős gyakorlati szakértő",
+      text: "Jó alapod van. A következő lépés a részletes pénzügyi és kockázati modellezés.",
+      recommendations: [
+        "Pontosítsd a nyersanyag-logisztikát és KPI-okat.",
+        "Készíts ipari off-take mintaszerződéseket.",
+        "Fejlessz fokozatos skálázási tervet."
+      ]
+    },
+    {
+      min: 0,
+      title: "Szint: Energia-rajongó",
+      text: "Erős kezdés. Néhány pilot példával gyorsan magasabb szintre jutsz.",
+      recommendations: [
+        "Indulj közösségi és farm pilot modellekkel.",
+        "Tanuld meg az EU-kompatibilis tanúsítás alapjait.",
+        "Lépj az elmélettől a konkrét üzleti terv felé."
+      ]
+    }
+  ]
 };
+
+const quizHuQuestions = [
+  {
+    category: "Nyersanyag",
+    question: "Melyik nyersanyag-modell a legstabilabb biogáz üzemnél?",
+    options: [
+      { label: "Trágya + siló + szerves hulladék", score: 20, insight: "Igen, a kevert alapanyag csökkenti a szezonális ingadozást." },
+      { label: "Véletlenszerű hulladék válogatás nélkül", score: 3, insight: "Instabil összetétel mellett gyengébb az erjesztés." },
+      { label: "Csak import biomassa", score: 2, insight: "Drágább és gyengébb helyi értékteremtés." },
+      { label: "Csak faanyag előkezelés nélkül", score: 4, insight: "Nem ez a legerősebb indulási opció." }
+    ]
+  },
+  {
+    category: "Pénzügy",
+    question: "Mi javítja leginkább egy projekt bankolhatóságát?",
+    options: [
+      { label: "Hosszú szerződések és transzparens riport", score: 20, insight: "Pontosan, ez csökkenti a hitelkockázatot." },
+      { label: "Csak optimista előrejelzés", score: 2, insight: "Szerződés nélkül az előrejelzés kevés." },
+      { label: "Csak spot ár alapú modell", score: 6, insight: "Rugalmas, de gyengébb stabilitás." },
+      { label: "Támogatás üzleti modell nélkül", score: 3, insight: "A támogatás nem pótolja a fenntartható modellt." }
+    ]
+  },
+  {
+    category: "Infrastruktúra",
+    question: "Mi a biometán fő előnye a nyers biogázhoz képest?",
+    options: [
+      { label: "Tisztítás után hálózatba táplálható", score: 20, insight: "Igen, ez ad valódi skálázhatóságot." },
+      { label: "Nincs minőségi követelmény", score: 1, insight: "A hálózatnál kötelező a minőségi szabvány." },
+      { label: "Csak helyben használható", score: 5, insight: "A biometán piaca sokkal szélesebb." },
+      { label: "Nem tárolható", score: 2, insight: "Lehetséges a rendszerkiegyenlítés és tárolás." }
+    ]
+  },
+  {
+    category: "Hidrogén",
+    question: "Mikor a legerősebb a zöld hidrogén üzleti modellje?",
+    options: [
+      { label: "VRE többlet + ipari kereslet mellett", score: 20, insight: "Igen, így lesz technikai és üzleti értelme." },
+      { label: "Fosszilis árammal termelve", score: 2, insight: "Így gyenge a dekarbonizációs érték." },
+      { label: "Végfelhasználó nélkül", score: 3, insight: "Off-take nélkül nehéz skálázni." },
+      { label: "Biztonsági szabvány nélkül", score: 1, insight: "A biztonság alapfeltétel." }
+    ]
+  },
+  {
+    category: "Tanúsítás",
+    question: "Mi kulcsfontosságú a H2 EU-exporthoz?",
+    options: [
+      { label: "Eredet és karbonlábnyom tanúsítás", score: 20, insight: "Pontosan, ez piaci belépési feltétel." },
+      { label: "Csak alacsony ár", score: 2, insight: "Ár önmagában nem elegendő." },
+      { label: "Csak marketing", score: 1, insight: "A piac a szabványokat és igazolást nézi." },
+      { label: "Helyi papírok EU-kompatibilitás nélkül", score: 5, insight: "Nemzetközi kompatibilitás szükséges." }
+    ]
+  },
+  {
+    category: "Export",
+    question: "Melyik stratégia stabilabb középtávon?",
+    options: [
+      { label: "Portfólió: biometán + H2 + származékok", score: 20, insight: "Igen, diverzifikációval csökken a volatilitás." },
+      { label: "Csak egy termékre építés", score: 4, insight: "Nagyobb piaci kitettség." },
+      { label: "Csak rövid szerződések", score: 6, insight: "Rugalmas, de gyengébb finanszírozhatóság." },
+      { label: "Export tanúsítás nélkül", score: 2, insight: "Tanúsítás nélkül korlátozott a piacra jutás." }
+    ]
+  },
+  {
+    category: "Közösségek",
+    question: "Mi adja a legnagyobb helyi hatást biogáz hubelemnél?",
+    options: [
+      { label: "Energia + munkahely + hulladékkezelés", score: 20, insight: "Komplex helyi előny = erős támogatás." },
+      { label: "Csak kommunikáció", score: 1, insight: "Működő operációs modell is kell." },
+      { label: "Helyi partnerek kihagyása", score: 3, insight: "A lokális lánc nélkül gyengébb a stabilitás." },
+      { label: "Képzés nélküli indulás", score: 2, insight: "Képzett csapat nélkül nő az üzemi kockázat." }
+    ]
+  },
+  {
+    category: "Biztonság",
+    question: "Mi a legjobb technikai kockázatcsökkentő út?",
+    options: [
+      { label: "Pilot -> audit -> skálázás", score: 20, insight: "A fokozatosság csökkenti a drága hibákat." },
+      { label: "Azonnali nagy skála teszt nélkül", score: 2, insight: "Magas induló hibakockázat." },
+      { label: "Online monitorozás nélkül", score: 3, insight: "A monitorozás kulcs a stabil üzemhez." },
+      { label: "Védelmi rendszeren spórolni", score: 1, insight: "A biztonsági rendszerek kötelezők." }
+    ]
+  },
+  {
+    category: "Képzés",
+    question: "Mi a legfontosabb a humán háttérben?",
+    options: [
+      { label: "Operátor és mérnöki képzés", score: 20, insight: "A kompetens csapat a siker alapja." },
+      { label: "Csak külső tanácsadók", score: 6, insight: "Saját helyi kompetencia nélkül törékeny a modell." },
+      { label: "Képzés nélküli indulás", score: 2, insight: "Nő a leállás és a hibaarány." },
+      { label: "Egyetemi együttműködés elutasítása", score: 3, insight: "Az oktatási kapcsolat hosszú távú erőforrás." }
+    ]
+  },
+  {
+    category: "Stratégia",
+    question: "Melyik bevezetési modell a legreálisabb 2035-ig?",
+    options: [
+      { label: "Pilotok -> klaszterek -> tanúsított export", score: 20, insight: "Igen, ez a legstabilabb növekedési pálya." },
+      { label: "Csak deklaráció konkrét terv nélkül", score: 1, insight: "Terv nélkül lassul a végrehajtás." },
+      { label: "Skálázás pilot nélkül", score: 4, insight: "Pilot kell a technológia és gazdaság validálásához." },
+      { label: "Egy régióra szűk fókusz", score: 6, insight: "Pilot jó, de országos skálázáshoz több klaszter kell." }
+    ]
+  }
+];
 
 const state = {
   lang: "uk",
@@ -389,7 +524,7 @@ function getContent() {
     hydrogen: { ...baseContent.hydrogen, ...huOverrides.hydrogen },
     team: { ...baseContent.team, ...huOverrides.team },
     footer: huOverrides.footer,
-    quiz: { ...quizBase, ...quizHuOverrides }
+    quiz: { ...quizBase, ...quizHuOverrides, questions: quizHuQuestions }
   };
 }
 
